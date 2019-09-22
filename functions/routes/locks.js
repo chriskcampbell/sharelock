@@ -10,7 +10,7 @@ router.get('/:lockId', (req, res, next) => {
         console.log(selectedLock);
         for (var i = 0; i < lockKeys.length; i++) {
             lockKeys[i]['formattedExpiryTime'] = moment(lockKeys[i].expiryTime).format('MM/DD/YYYY HH:mm');
-            lockKeys[i]['lastAccessedTime'] = (lockKeys[i].lastUsedTime) ? moment(lockKeys[i].expiryTime).format('MM/DD/YYYY HH:mm') : 'N/A';
+            lockKeys[i]['lastAccessedTime'] = (lockKeys[i].lastUsedTime) ? moment(lockKeys[i].lastUsedTime).format('MM/DD/YYYY HH:mm') : 'N/A';
             lockKeys[i].user.phoneNumber = phoneUtil.formatInOriginalFormat(phoneUtil.parse(lockKeys[i].user.phoneNumber, 'US'), 'US');
         }
         res.render('lockInfo', {
