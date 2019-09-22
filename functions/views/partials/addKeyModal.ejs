@@ -1,0 +1,35 @@
+<div class="modal fade" id="addKeyModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Add Virtual Key</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form class="form addKeyForm">
+                <div class="form-group">
+                    <label for="addDeviceName"><span class="requiredFieldAsterisk">*</span>Name: </label>
+                    <input type="text" id="addDeviceName" name="name" class="form-control editDeviceNameInput">
+                </div>
+                <div class="form-group">
+                    <label for="addDevicePhoneNumber"><span class="requiredFieldAsterisk">*</span>Phone Number: </label>
+                    <input type="text" id="addDevicePhoneNumber" name="phoneNumber" class="form-control editDeviceNameInput">
+                </div>
+                <div class="form-group">
+                    <label for="addDeviceExpiration"><span class="requiredFieldAsterisk">*</span>Expiration: </label>
+                    <input type="text" class="form-control datePicker" id="addDeviceExpiration" name="expiryTime">
+                </div>
+                <input type="hidden" name="userId" value="<%= userId %>">
+                <input type="hidden" name="lockId" value="<%= lock.id %>">
+            </form>
+        </div>
+        <div class="modal-footer">
+            <span class="requiredFieldDescriptor"><span class="requiredFieldAsterisk">*</span>Required Field</span>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary addKeySubmit">Submit</button>
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="modal fade" id="editActiveLocksModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title"><span class="editActiveLocksName"></span> - Active Devices</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div>
+                <form class="form-inline " data-device-id="2">
+                    <span class="activeDeviceIdentifier">Device 1</span>
+                    <label for="disableActiveDevice">Disabled: </label>
+                    <input type="checkbox" id="disableActiveDevice" name="disableActiveDevice" class="disableActiveDevice" data-device-id="2">
+                    <label for="device-expiration">Expiration: </label>
+                    <input type="datetime-local" id="device-expiration" name="device-expiration" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00">
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Refresh Locks</button>
+        </div>
+        </div>
+    </div>
+</div>

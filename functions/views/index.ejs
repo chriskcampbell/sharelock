@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include partials/head.ejs %>
+    <body>
+        <%- include partials/navbar.ejs %>
+        <div class="container">
+            <div class="contentContainer position-relative">
+                <div class="locksHeaderDiv">
+                    <h1 class="locksHeader">Locks</h1>
+                    <button class="btn btn-outline-secondary my-2 my-sm-0 addLockButton" data-toggle="modal" data-target="#addLockModal"><i class="fa fa-plus" aria-hidden="true"></i> Add Lock</button>
+                </div>
+                <div class="row justify-content-center">
+                    <% for (var i = 0; i < locks.length; i++) { %>
+                        <div class="col-sm-4">
+                            <div class="card" data-lock-id="<%= locks[i].id %>" data-access-token="<%= locks[i].ownerToken %>">
+                                <div class="card-header">
+                                    <span><strong class="lockName"><%= locks[i].name %></strong></span>
+                                    <% if (locks[i].status === 'DISABLED') { %>
+                                        <span class="lockAvailability lockBricked float-right" title="Lock Secured"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                    <% } else { %>
+                                        <span class="lockAvailability lockAvailable float-right" title="Lock Available"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>                                    <% } %>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title lockDevices">Active Keys:</h6>
+                                    <div class="lockActiveDevicesList">
+                                        <% var numActiveLocks = 0; %>
+                                        <% for (var j = 0; j < locks[i].keys.length; j++) { %>
+                                            <% if (locks[i].keys[j].active) { %>
+                                                <p class="card-text lockDeviceInCard" data-expiry="<%= locks[i].keys[j].expiryTime %>"><%= locks[i].keys[j].name %></p>
+                                            <% } %>
+                                            <% numActiveLocks++; %>
+                                        <% } %>
+                                        <% if (numActiveLocks < 1) { %>
+                                            <p class="card-text lockNoDeviceInCard"><i>No active keys for lock.</i></p>
+                                        <% } %>
+                                    </div>
+                                    <a href="/locks/<%= locks[i].id %>" class="btn btn-primary btn-block">See All Keys</a>
+                                </div>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <%- include partials/addLockModal.ejs %>
+        <%- include partials/scripts.ejs %>
+    </body>
+</html>

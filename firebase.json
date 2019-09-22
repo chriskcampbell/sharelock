@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "functions/public",
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "sharelock"
+      }
+    ],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "sharelock-local.js"
+    ]
+  }
+}

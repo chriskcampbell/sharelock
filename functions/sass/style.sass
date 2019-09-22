@@ -1,0 +1,93 @@
+@import '../node_modules/bootstrap/scss/_functions.scss'
+@import '../node_modules/bootstrap/scss/_variables.scss'
+    
+body
+    font-family: Montserrat, sans-serif
+
+.contentContainer
+    padding-top: 2rem
+
+.locksHeader
+    margin: 1rem 0
+    display: inline-block !important
+
+.locksHeaderDiv
+    display: flex
+    align-items: center
+    border-bottom: 1px solid black
+    margin-bottom: 1rem
+
+.addLockButton
+    position: absolute
+    right: 0
+
+.editDeviceForLock
+    opacity: 0.5
+    transition: 0.5s opacity
+    &:hover
+        opacity: 1
+        cursor: pointer
+
+.editKeyForLock
+    opacity: 0.5
+    transition: 0.5s opacity
+    &:hover
+        opacity: 1
+        cursor: pointer
+
+.lockActiveDevicesList
+    margin-bottom: 1rem
+
+.lockDeviceInCard, .lockNoDeviceInCard
+    font-size: 14px
+    margin: 0
+
+.lockNoDeviceInCard
+    color: lightgrey
+
+.lockAvailability
+    opacity: 0.65
+    transition: 0.5s opacity
+    &:hover
+        opacity: 1
+        cursor: pointer
+
+.locksInfoHeader
+    display: inline-block !important
+
+.addDeviceButton
+    position: absolute
+    right: 0
+
+.lockBricked
+    color: red
+
+.accountName
+    padding-right: 1rem
+
+.navLoginButton
+    font-family: $font-family-base
+
+.headerDiv
+    display: flex
+    align-items: center
+
+.requiredFieldAsterisk
+    color: red
+    padding-right: 5px
+
+.requiredFieldDescriptor
+    position: absolute
+    left: 1rem
+    font-size: 0.75rem
+
+.spinner-border
+    width: 1.25rem !important
+    height: 1.25rem !important
+
+button[type="button"]
+    &.disabled
+        pointer-events: none !important
+
+.card
+    margin-bottom: 1rem

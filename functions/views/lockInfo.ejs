@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include partials/head.ejs %>
+    <body>
+        <%- include partials/navbar.ejs %>
+        <div class="container">
+            <div class="contentContainer position-relative lockInfoContainer" data-lock-id="<%= lock.id %>">
+                <div class="headerDiv">
+                    <h1 class="locksInfoHeader"><%= lock.name %></h1>
+                    <button class="btn btn-outline-secondary my-2 my-sm-0 addDeviceButton" data-toggle="modal" data-target="#addKeyModal"><i class="fa fa-plus" aria-hidden="true"></i> Add Virtual Key</button>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-12">
+                            <table class="table table-hover mt-2">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="text-center">Status</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Phone Number</th>
+                                        <th scope="col">Last Accessed</th>
+                                        <th scope="col">Expires</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for (var i = 0; i < keys.length; i++) { %>
+                                    <tr class="lockKeyRow" data-user-id="<%= userId %>" data-key-id="<%= keys[i].id %>">
+                                        <% if (keys[i].active) { %>
+                                            <td class="text-center"><span class="lockInfoAvailability" title="Lock Available"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span></td>
+                                        <% } else { %>
+                                            <td class="text-center"><span class="lockInfoAvailability" title="Locked Out"><i class="fa fa-lock" aria-hidden="true"></i></span></td>
+                                        <% } %>                                   
+                                        <td class="lockKeyName"><%= keys[i].name %></td>
+                                        <td class="lockKeyPhone"><%= keys[i].user.phoneNumber %></td>
+                                        <td class="lockKeyLastAccess"><%= keys[i].lastAccessedTime %></td>
+                                        <td class="lockKeyExpiry" data-epoch-expiry="<%= keys[i].expiryTime %>"><%= keys[i].formattedExpiryTime %></td>
+                                        <td><span class="editKeyForLock float-right" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></span></td>
+                                    </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include partials/addKeyModal.ejs %>
+        <%- include partials/editKeyModal.ejs %>
+        <%- include partials/scripts.ejs %>
+    </body>
+</html>
